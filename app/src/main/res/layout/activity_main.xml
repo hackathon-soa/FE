@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -14,6 +15,14 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/view_line_navi"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line_gray_200"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
