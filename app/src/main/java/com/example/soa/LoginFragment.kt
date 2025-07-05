@@ -65,9 +65,13 @@ class LoginFragment : Fragment() {
 
         //빈 경우 문제
         if(id.isEmpty() || pw.isEmpty()){
-
+            binding.tvWarningLogin.visibility = View.VISIBLE
+            binding.tvWarningLogin.text = "아이디와 비밀번호를 입력해주세요."
             return
         }
+        
+        //값을 보낸 경우 --> API 결과에 따라 통과 or 오류
+        
 
     }
 
