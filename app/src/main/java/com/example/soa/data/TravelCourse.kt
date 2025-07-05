@@ -7,5 +7,6 @@ data class TravelCourse(
     val gender: String,
     val nickname: String,
     val disability: String,
-    val profileImgRes: Int
+    val profileImgRes: Int,
+    val like: Boolean = false
 )
