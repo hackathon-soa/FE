@@ -46,6 +46,9 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    // material calendarView
+    implementation("com.github.prolificinteractive:material-calendarview:2.0.1")
+
     // NavController
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui.ktx)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CalendarHeaderText">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textColor">@color/gray_80</item>
+    </style>
+    <style name="CalendarWeekdayText">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textColor">@color/gray_40</item>
+    </style>
+    <style name="CalendarDateText">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textColor">@color/gray_80</item>
+    </style>
+</resources>

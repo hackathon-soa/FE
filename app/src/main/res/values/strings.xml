@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">Soa</string>
     <string name="logo">Travel Together</string>
+    <string name="sex_man">남성</string>
+    <string name="sex_woman">여성</string>
+    <string name="sex_uni">혼성</string>
+    <string name="search">검색</string>
+
+    <string name="make_courses">나만의 관광 코스 만들기</string>
+    <string name="add_place">장소 추가</string>
+    <string name="add_time">시간 추가</string>
 
     <string name="signup_edit_text">여기에 입력하세요</string>
-
+    
     <string name="signup_complete_message">
         회원가입이 완료되었습니다!
         \n로그인 후 바로 서비스 이용하세요.</string>
@@ -13,6 +21,8 @@
     <string name="signup_file_upload">파일을 업로드 하세요.</string>
     <string name="signup_camera">바로 올리기</string>
     <string name="signup_gallery">갤러리 찾기</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="home_search">동행을 원하는 여행지를 검색해보세요</string>
     <string name="search_result">검색 결과 총 n건</string>
