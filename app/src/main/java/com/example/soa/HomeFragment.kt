@@ -1,6 +1,9 @@
 package com.example.soa
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +21,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var prefs: SharedPreferences
+    private lateinit var accessToken: String
+
     private lateinit var homeStoryAdapter: HomeStoryAdapter
 
     override fun onCreateView(
@@ -30,6 +36,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        accessToken = prefs.getString("accessToken", "") ?: ""
+        Log.d("test", accessToken)
 
         setupHomeStoryRecyclerView()
     }
