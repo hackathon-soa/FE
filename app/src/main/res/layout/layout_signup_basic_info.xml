@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_basic_info_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textSize="18sp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_basic_info_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_square_white_grey_14"
+        android:paddingStart="20dp"
+        android:hint="@string/signup_edit_text"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_name"/>
+
+
+    <TextView
+        android:id="@+id/tv_basic_info_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전화번호"
+        android:textSize="18sp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_basic_info_name" />
+
+    <EditText
+        android:id="@+id/et_basic_info_tel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_square_white_grey_14"
+        android:paddingStart="20dp"
+        android:hint="@string/signup_edit_text"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_tel"/>
+
+    <TextView
+        android:id="@+id/tv_basic_info_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생년월일 (6자리)"
+        android:textSize="18sp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_basic_info_tel" />
+
+    <EditText
+        android:id="@+id/et_basic_info_birth"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_square_white_grey_14"
+        android:paddingStart="20dp"
+        android:hint="예) XXXXXX"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_birth"/>
+
+    <TextView
+        android:id="@+id/tv_basic_info_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별"
+        android:textSize="18sp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_basic_info_birth" />
+
+    <FrameLayout
+        android:id="@+id/btn_basic_info_male"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_basic_info_gender">
+
+        <!-- 버튼 배경 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_square_white_grey_14" />
+
+        <!-- 버튼 텍스트 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="남성"
+            android:textSize="18sp"
+            android:includeFontPadding="false"/>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/line_basic_info"
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:src="@drawable/line_gray_200"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_basic_info_male"
+        app:layout_constraintStart_toEndOf="@id/btn_basic_info_male" />
+
+    <FrameLayout
+        android:id="@+id/btn_basic_info_female"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_basic_info_male"
+        app:layout_constraintStart_toEndOf="@id/line_basic_info"
+        app:layout_constraintTop_toTopOf="@+id/btn_basic_info_male">
+
+        <!-- 버튼 배경 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_square_white_grey_14" />
+
+        <!-- 버튼 텍스트 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            android:text="여성"
+            android:textSize="18sp" />
+    </FrameLayout>
+    
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>
