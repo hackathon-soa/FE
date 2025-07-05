@@ -74,15 +74,55 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/bg_square_white_gray_16"
+        android:background="@drawable/bg_square_white_grey_14"
         android:fontFamily="@font/pretendard_medium"
         android:layout_marginTop="5dp"
-        android:hint="아이디를 입력하세요"
+        android:hint="여기에 입력하세요"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray_400"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_idtext_login"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_nametext_signupInfo"/>
+
+
+    <TextView
+        android:id="@+id/tv_phonetext_signupInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="연락처"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/pretendard_medium"
+        app:layout_constraintStart_toStartOf="@id/tv_input_signupInfo"
+        app:layout_constraintTop_toBottomOf="@id/et_name_signupInfo"/>
+
+    <EditText
+        android:id="@+id/et_phone_signupInfo"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_square_white_grey_14"
+        android:fontFamily="@font/pretendard_medium"
+        android:layout_marginTop="5dp"
+        android:hint="여기에 입력하세요"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_phonetext_signupInfo"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_half_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
 
 
 

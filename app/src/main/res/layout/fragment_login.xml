@@ -21,6 +21,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
+    <!--ID/PW 입력창-->
+
     <TextView
         android:id="@+id/tv_idtext_login"
         android:layout_width="wrap_content"
@@ -42,6 +45,8 @@
         android:fontFamily="@font/pretendard_medium"
         android:layout_marginTop="5dp"
         android:hint="아이디를 입력하세요"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray_400"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,13 +74,27 @@
         android:fontFamily="@font/pretendard_medium"
         android:layout_marginTop="5dp"
         android:hint="비밀번호를 입력하세요"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray_400"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_pwtext_login"/>
 
-
+    <TextView
+        android:id="@+id/tv_warning_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디가 잘못되었습니다."
+        android:textColor="#F82525"
+        android:fontFamily="@font/pretendard_regular"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tv_pwtext_login"
+        app:layout_constraintTop_toBottomOf="@id/et_pw_login"
+        app:layout_constraintBottom_toTopOf="@id/btn_login_login"
+        android:visibility="gone"
+        />
 
 
     <!--로그인/회원가입 버튼-->
@@ -89,7 +108,7 @@
         android:layout_marginHorizontal="20dp"
         android:text="로그인"
         android:fontFamily="@font/pretendard_regular"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:padding="10dp"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
@@ -110,7 +129,7 @@
         android:layout_marginHorizontal="20dp"
         android:text="회원가입"
         android:fontFamily="@font/pretendard_regular"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:padding="10dp"
         android:textAllCaps="false"
         android:textColor="@color/black"
