@@ -40,7 +40,9 @@ class CourseDetailFragment : Fragment() {
         }
 
         val scheduleItems = generateDummySchedule()
-        scheduleAdapter = ScheduleAdapter(scheduleItems)
+        scheduleAdapter = ScheduleAdapter(scheduleItems) { entry ->
+
+        }
         binding.rvSchedule.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = scheduleAdapter

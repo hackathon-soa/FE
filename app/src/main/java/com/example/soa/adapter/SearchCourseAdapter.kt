@@ -8,7 +8,8 @@ import com.example.soa.data.TravelCourse
 import com.example.soa.databinding.ItemSearchResultBinding
 
 class SearchCourseAdapter(
-    private val items: List<TravelCourse>
+    private val items: List<TravelCourse>,
+    private val onItemClick: (TravelCourse) -> Unit
 ) : RecyclerView.Adapter<SearchCourseAdapter.CourseViewHolder>() {
 
     inner class CourseViewHolder(private val binding: ItemSearchResultBinding) :
@@ -25,6 +26,10 @@ class SearchCourseAdapter(
             binding.ivCourseLike.setImageResource(
                 if (item.like) R.drawable.ic_heart_active else R.drawable.ic_heart_inactive
             )
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
         }
     }
 

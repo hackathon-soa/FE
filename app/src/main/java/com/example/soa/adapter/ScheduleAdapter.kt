@@ -8,7 +8,9 @@ import com.example.soa.databinding.ViewDayHeaderBinding
 import com.example.soa.databinding.ViewScheduleEntryBinding
 import com.example.soa.databinding.ViewWalkInfoBinding
 
-class ScheduleAdapter(private val items: List<ScheduleItem>) :
+class ScheduleAdapter(
+    private val items: List<ScheduleItem>,
+    private val onEntryClick: (ScheduleItem.ScheduleEntry) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int = when (items[position]) {
@@ -52,7 +54,7 @@ class ScheduleAdapter(private val items: List<ScheduleItem>) :
         }
     }
 
-    class ScheduleViewHolder(private val binding: ViewScheduleEntryBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ScheduleViewHolder(private val binding: ViewScheduleEntryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ScheduleItem.ScheduleEntry) {
             binding.tvPlace.text = item.place
             binding.tvTime.text = item.time
@@ -62,6 +64,9 @@ class ScheduleAdapter(private val items: List<ScheduleItem>) :
                 // Todo : 상태 변환
             }
 
+            binding.root.setOnClickListener {
+                onEntryClick(item)
+            }
         }
     }
 
