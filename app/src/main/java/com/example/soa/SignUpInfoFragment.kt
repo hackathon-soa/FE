@@ -25,6 +25,9 @@ import com.example.soa.api.IdCheckResult
 import com.example.soa.api.LoginResult
 import com.example.soa.api.SignUpResult
 import com.example.soa.databinding.FragmentSignUpInfoBinding
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -136,8 +139,20 @@ class SignUpInfoFragment : Fragment(R.layout.fragment_sign_up_info), AuthView {
             binding.btnNextSignupInfo.isEnabled = true
             binding.btnNextSignupInfo.backgroundTintList = resources.getColorStateList(R.color.main_color)
 
+            // 2) MIME 타입에 맞춰 RequestBody 생성
+            val requestBody = file
+                .asRequestBody("image/jpg".toMediaTypeOrNull())
+
+            // 3) MultipartBody.Part 생성 (서버가 요구하는 파트 이름이 "file" 이라면)
+            val multipartPart = MultipartBody.Part.createFormData(
+                name = "file",        // Swagger 에서 정의한 파트 키
+                filename = file.name, // 보내는 파일의 이름
+                body = requestBody
+            )
+
             //API에 이미지 보내기
             sendInfo()
+            authService.sendImage(userId, multipartPart)
         }
     }
 
@@ -176,14 +191,6 @@ class SignUpInfoFragment : Fragment(R.layout.fragment_sign_up_info), AuthView {
 
             AuthService(this).idcheck(id)
 
-            //API에서 검사 후
-            if(idCheck){
-                signupBinding.includeIdPassword.tvAvailableId.visibility = View.VISIBLE
-                idCheck = true
-            }
-            else{
-                idCheck = false
-            }
         }
 
         //editText 추적
@@ -407,6 +414,16 @@ class SignUpInfoFragment : Fragment(R.layout.fragment_sign_up_info), AuthView {
 
     override fun onIdCheckSuccess(result: IdCheckResult) {
         idCheck = result.isAvailable
+        signupBinding.includeIdPassword.tvAvailableId.visibility = View.VISIBLE
+        if(idCheck){
+            signupBinding.includeIdPassword.tvAvailableId.setTextColor(Color.parseColor("#327AFF"))
+            signupBinding.includeIdPassword.tvAvailableId.text = "사용 가능한 아이디입니다."
+        }
+        else{
+            signupBinding.includeIdPassword.tvAvailableId.setTextColor(Color.parseColor("#F82525"))
+            signupBinding.includeIdPassword.tvAvailableId.text = "이미 존재하는 아이디입니다."
+        }
+
         Log.d("test", idCheck.toString())
     }
 }

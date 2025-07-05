@@ -74,6 +74,7 @@
         android:fontFamily="@font/pretendard_medium"
         android:layout_marginTop="5dp"
         android:hint="비밀번호를 입력하세요"
+        android:inputType="textPassword"
         android:paddingVertical="10dp"
         android:paddingHorizontal="20dp"
         android:textColor="@color/black"

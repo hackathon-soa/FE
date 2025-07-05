@@ -1,5 +1,6 @@
 package com.example.soa.api
 
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -9,8 +10,23 @@ class AuthService(private val view: AuthView) {
     //NetworkManager에 정의한 인스턴스 + ApiService에 정의한 서비스 연결
     private val api = NetworkManager.retrofit.create(ApiService::class.java)
 
-    //회원가입 기능
+    //이미지 받기
+    fun sendImage(memberId: Long, file: MultipartBody.Part){
+        api.uploadImage(memberId, file).enqueue(object : Callback<ImageUploadResponse>{
+            override fun onResponse(
+                call: Call<ImageUploadResponse?>,
+                response: Response<ImageUploadResponse?>
+            ) {}
 
+            override fun onFailure(call: Call<ImageUploadResponse?>, t: Throwable) {
+
+            }
+
+        })
+    }
+
+
+    //회원가입 기능
     fun signUp(id: String, pw: String, name: String, nickname: String, tel: String, birth: String, gender: String, jangae: String){
         //결국에는 NetworkManger -> Retrofit 인스턴스 + ApiService 연결 후 호출
         //꼭 enqueue로 비동기로 넣자 (apiService에 정의된 signUP 실행)

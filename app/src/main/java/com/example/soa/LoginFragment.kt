@@ -1,5 +1,6 @@
 package com.example.soa
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -67,6 +68,8 @@ class LoginFragment : Fragment(), AuthView {
         }
 
         binding.layoutPassloginLogin.setOnClickListener {
+            val prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE)
+            //prefs.edit().putString("accessToken", "").apply()
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
@@ -97,10 +100,17 @@ class LoginFragment : Fragment(), AuthView {
     override fun onLoginSuccess(result: LoginResult) {
         val accessToken = result.accessToken
         Log.d("test", accessToken)
+        val prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        prefs.edit().putString("accessToken", accessToken).apply()
+
+        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
     }
 
     override fun onLoginFailure(errorMsg: String) {
         Log.d("test", "꾸앙")
+        binding.tvWarningLogin.visibility = View.VISIBLE
+        binding.tvWarningLogin.text = "아이디/비밀번호가 잘못되었습니다"
+
     }
 
     override fun onIdCheckSuccess(result: IdCheckResult) {

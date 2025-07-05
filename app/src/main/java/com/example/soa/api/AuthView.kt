@@ -20,4 +20,6 @@ interface AuthView {
     fun onIdCheckSuccess(result: IdCheckResult)
 
 
+
+
 }
