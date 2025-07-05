@@ -1,73 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/txt_courses_travel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여행 코스명"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
     <EditText
         android:id="@+id/et_courses_travel_title"
         android:layout_width="match_parent"
         android:layout_height="44sp"
-        android:background="@drawable/bg_square_white_grey_14"
-        android:paddingStart="20sp"
+        android:background="@drawable/bg_square_gray100_60"
+        android:paddingHorizontal="20sp"
         android:paddingVertical="10sp"
-        android:hint="제목을 입력하세요"
-        android:layout_marginTop="14sp"
+        android:hint="코스명을 입력하세요."
+        android:textColorHint="@color/gray_300"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_courses_travel_title"/>
 
     <TextView
         android:id="@+id/txt_courses_travel_period_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="여행 기간"
-        android:fontFamily="@font/pretendard_regular"
+        android:fontFamily="@font/pretendard_medium"
         android:textSize="20sp"
-        android:layout_marginTop="31sp"
+        android:layout_marginTop="32sp"
         app:layout_constraintTop_toBottomOf="@id/et_courses_travel_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/frm_courses_travel_period"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/frm_courses_travel_period"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="44sp"
-        android:layout_marginStart="11sp"
-        android:layout_marginEnd="5sp"
-        app:layout_constraintStart_toEndOf="@id/txt_courses_travel_period_title"
-        app:layout_constraintEnd_toStartOf="@id/ic_courses_calendar"
-        app:layout_constraintTop_toTopOf="@id/txt_courses_travel_period_title"
-        app:layout_constraintBottom_toBottomOf="@id/txt_courses_travel_period_title">
+        android:background="@drawable/bg_square_gray100_60"
+        android:paddingHorizontal="20sp"
+        android:paddingVertical="10sp"
+        app:layout_constraintTop_toBottomOf="@id/txt_courses_travel_period_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
 
-        <!-- 버튼 배경 -->
         <ImageView
-            android:layout_width="match_parent"
+            android:id="@+id/ic_courses_calendar"
+            android:layout_width="49sp"
             android:layout_height="match_parent"
-            android:src="@drawable/bg_square_white_grey_14" />
-
+            android:src="@drawable/btn_calendar"
+            android:layout_marginEnd="16sp"
+            app:layout_constraintStart_toStartOf="@id/frm_courses_travel_period"/>
         <!-- 버튼 텍스트 -->
         <TextView
             android:id="@+id/txt_courses_travel_period"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingHorizontal="20sp"
-            android:paddingVertical="10sp"
-            android:text="날짜를 입력하세요"
+            android:text="날짜를 선택하세요"
             android:fontFamily="@font/pretendard_regular"
-            android:textColor="@color/gray_200"
+            android:textColor="@color/gray_300"
             android:textSize="20sp"/>
-    </FrameLayout>
-    <ImageView
-        android:id="@+id/ic_courses_calendar"
-        android:layout_width="49sp"
-        android:layout_height="49sp"
-        android:src="@drawable/ic_calendar"
-        app:layout_constraintStart_toEndOf="@id/frm_courses_travel_period"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/frm_courses_travel_period"
-        app:layout_constraintBottom_toBottomOf="@id/frm_courses_travel_period"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txt_courses_travel_desc"
@@ -79,25 +77,24 @@
         android:layout_marginTop="33sp"
         app:layout_constraintTop_toBottomOf="@id/frm_courses_travel_period"
         app:layout_constraintStart_toStartOf="parent"/>
-    <ImageView
-        android:id="@+id/btn_courses_more"
-        android:layout_width="17sp"
-        android:layout_height="17sp"
-        android:src="@drawable/btn_more"
-        android:layout_marginStart="10.95sp"
-        app:layout_constraintTop_toTopOf="@id/txt_courses_travel_desc"
-        app:layout_constraintStart_toEndOf="@id/txt_courses_travel_desc"
-        app:layout_constraintBottom_toBottomOf="@id/txt_courses_travel_desc"/>
+    <!--    <ImageView-->
+    <!--        android:id="@+id/btn_courses_more"-->
+    <!--        android:layout_width="17sp"-->
+    <!--        android:layout_height="17sp"-->
+    <!--        android:src="@drawable/btn_more"-->
+    <!--        android:layout_marginStart="10.95sp"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/txt_courses_travel_desc"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/txt_courses_travel_desc"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/txt_courses_travel_desc"/>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_courses_travel_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_square_black"
+        android:background="@drawable/bg_square_second_14"
         app:layout_constraintTop_toBottomOf="@id/txt_courses_travel_desc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/txt_courses_sex"
@@ -111,23 +108,22 @@
             android:layout_marginStart="19dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn_courses_sex_uni"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
             android:id="@+id/btn_courses_sex_uni"
-            android:layout_width="0dp"
+            android:layout_width="63dp"
             android:layout_height="39dp"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintTop_toTopOf="@id/txt_courses_sex"
-            app:layout_constraintBottom_toBottomOf="@id/txt_courses_sex"
-            app:layout_constraintStart_toEndOf="@id/txt_courses_sex"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/txt_courses_sex"
+            app:layout_constraintStart_toStartOf="@id/txt_courses_sex"
             app:layout_constraintEnd_toStartOf="@id/btn_courses_sex_man">
             <ImageView
                 android:id="@+id/bg_btn_courses_sex_uni"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14" />
+                android:src="@drawable/bg_square_trans_gray100_60" />
             <TextView
                 android:id="@+id/txt_btn_courses_sex_uni"
                 android:layout_width="wrap_content"
@@ -135,52 +131,53 @@
                 android:text="@string/sex_uni"
                 android:fontFamily="@font/pretendard_regular"
                 android:textSize="20sp"
-                android:textColor="#A6A6A6"
+                android:textColor="@color/gray_300"
                 android:layout_gravity="center"/>
         </FrameLayout>
         <FrameLayout
             android:id="@+id/btn_courses_sex_man"
-            android:layout_width="0dp"
+            android:layout_width="63dp"
             android:layout_height="39dp"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintTop_toTopOf="@id/txt_courses_sex"
-            app:layout_constraintBottom_toBottomOf="@id/txt_courses_sex"
+            app:layout_constraintTop_toTopOf="@id/btn_courses_sex_uni"
+            app:layout_constraintBottom_toBottomOf="@id/btn_courses_sex_uni"
             app:layout_constraintStart_toEndOf="@id/btn_courses_sex_uni"
             app:layout_constraintEnd_toStartOf="@id/btn_courses_sex_woman">
             <ImageView
+                android:id="@+id/bg_btn_courses_sex_man"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
+                android:src="@drawable/bg_square_trans_gray100_60"/>
             <TextView
+                android:id="@+id/txt_btn_courses_sex_man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sex_man"
                 android:fontFamily="@font/pretendard_regular"
                 android:textSize="20sp"
-                android:textColor="#A6A6A6"
+                android:textColor="@color/gray_300"
                 android:layout_gravity="center"/>
         </FrameLayout>
         <FrameLayout
             android:id="@+id/btn_courses_sex_woman"
-            android:layout_width="0dp"
+            android:layout_width="63dp"
             android:layout_height="39sp"
-            app:layout_constraintTop_toTopOf="@id/txt_courses_sex"
-            app:layout_constraintBottom_toBottomOf="@id/txt_courses_sex"
-            app:layout_constraintStart_toEndOf="@id/btn_courses_sex_man"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@id/btn_courses_sex_uni"
+            app:layout_constraintBottom_toBottomOf="@id/btn_courses_sex_uni"
+            app:layout_constraintStart_toEndOf="@id/btn_courses_sex_man">
             <ImageView
-                android:id="@+id/bg_btn_courses_sex_man"
+                android:id="@+id/bg_btn_courses_sex_woman"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
+                android:src="@drawable/bg_square_trans_gray100_60"/>
             <TextView
-                android:id="@+id/txt_btn_courses_sex_man"
+                android:id="@+id/txt_btn_courses_sex_woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sex_woman"
                 android:fontFamily="@font/pretendard_regular"
                 android:textSize="20sp"
-                android:textColor="#A6A6A6"
+                android:textColor="@color/gray_300"
                 android:layout_gravity="center"/>
         </FrameLayout>
 
@@ -192,198 +189,181 @@
             android:fontFamily="@font/pretendard_semibold"
             android:textSize="20sp"
             android:textColor="#A6A6A6"
-            android:layout_marginEnd="12sp"
+            android:layout_marginTop="16sp"
             app:layout_constraintStart_toStartOf="@id/txt_courses_sex"
-            app:layout_constraintTop_toTopOf="@id/btn_courses_theme_activity"
-            app:layout_constraintBottom_toBottomOf="@id/btn_courses_theme_activity"
-            app:layout_constraintEnd_toStartOf="@id/btn_courses_theme_activity"/>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_activity"
-            android:layout_width="0dp"
-            android:layout_height="39sp"
-            android:layout_marginTop="14sp"
-            app:layout_constraintTop_toBottomOf="@id/btn_courses_sex_uni"
-            app:layout_constraintStart_toEndOf="@id/txt_courses_theme"
-            app:layout_constraintEnd_toStartOf="@id/btn_courses_theme_famous">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_activity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_activity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="체험&amp;액티비티"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_famous"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="6dp"
-            app:layout_constraintTop_toTopOf="@id/txt_courses_theme"
-            app:layout_constraintBottom_toBottomOf="@id/txt_courses_theme"
-            app:layout_constraintStart_toEndOf="@id/btn_courses_theme_activity"
-            app:layout_constraintEnd_toEndOf="parent">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_famous"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_famous"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="유명관광지"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_hotplace"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            app:layout_constraintTop_toBottomOf="@id/btn_courses_theme_activity"
-            app:layout_constraintStart_toStartOf="@id/btn_courses_theme_activity"
-            app:layout_constraintEnd_toStartOf="@id/btn_courses_theme_famous">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_hotplace"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_hotplace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SNS 핫플레이스"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_nature"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="6dp"
-            app:layout_constraintTop_toTopOf="@id/btn_courses_theme_hotplace"
-            app:layout_constraintBottom_toBottomOf="@id/btn_courses_theme_hotplace"
-            app:layout_constraintStart_toEndOf="@id/btn_courses_theme_hotplace"
-            app:layout_constraintEnd_toEndOf="parent">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_nature"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_nature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="자연"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_food"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            app:layout_constraintTop_toBottomOf="@id/btn_courses_theme_hotplace"
-            app:layout_constraintStart_toStartOf="@id/btn_courses_theme_hotplace"
-            app:layout_constraintEnd_toStartOf="@id/btn_courses_theme_healing">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_food"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="맛집"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_healing"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            app:layout_constraintTop_toTopOf="@id/btn_courses_theme_food"
-            app:layout_constraintBottom_toBottomOf="@id/btn_courses_theme_food"
-            app:layout_constraintStart_toEndOf="@id/btn_courses_theme_food"
-            app:layout_constraintEnd_toStartOf="@id/btn_courses_theme_shopping">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_healing"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_healing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="힐링"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/btn_courses_theme_shopping"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="6dp"
-            app:layout_constraintTop_toTopOf="@id/btn_courses_theme_healing"
-            app:layout_constraintBottom_toBottomOf="@id/btn_courses_theme_healing"
-            app:layout_constraintStart_toEndOf="@id/btn_courses_theme_healing"
-            app:layout_constraintEnd_toEndOf="parent">
-            <ImageView
-                android:id="@+id/bg_btn_courses_theme_shopping"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bg_square_gray_14"/>
-            <TextView
-                android:id="@+id/txt_btn_courses_theme_shopping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="쇼핑"
-                android:fontFamily="@font/pretendard_regular"
-                android:textSize="20sp"
-                android:textColor="#A6A6A6"
-                android:layout_gravity="center"/>
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@id/btn_courses_sex_uni"/>
+
+        <GridLayout
+            android:id="@+id/grid"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:rowCount="3"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:alignmentMode="alignBounds"
+            app:layout_constraintTop_toBottomOf="@id/txt_courses_theme"
+            app:layout_constraintStart_toStartOf="@id/txt_courses_theme">
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_activity"
+                android:layout_width="157sp"
+                android:layout_height="39sp"
+                android:layout_marginTop="14sp"
+                android:layout_columnSpan="2">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="체험&amp;액티비티"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_famous"
+                android:layout_width="115dp"
+                android:layout_height="39dp">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_famous"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_famous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="유명관광지"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_hotplace"
+                android:layout_width="172dp"
+                android:layout_height="39dp"
+                android:layout_columnSpan="2">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_hotplace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_hotplace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SNS 핫플레이스"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_nature"
+                android:layout_width="85dp"
+                android:layout_height="39dp">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_nature"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_nature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자연"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_food"
+                android:layout_width="83dp"
+                android:layout_height="39dp">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_food"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="맛집"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_healing"
+                android:layout_width="86dp"
+                android:layout_height="39dp">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_healing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_healing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="힐링"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_courses_theme_shopping"
+                android:layout_width="85dp"
+                android:layout_height="39dp">
+                <ImageView
+                    android:id="@+id/bg_btn_courses_theme_shopping"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_square_trans_gray100_60"/>
+                <TextView
+                    android:id="@+id/txt_btn_courses_theme_shopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="쇼핑"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="20sp"
+                    android:textColor="#9EA4A0"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+        </GridLayout>
 
         <TextView
             android:id="@+id/txt_courses_interest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="관심사"
-            android:fontFamily="@font/pretendard_semibold"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="20sp"
-            android:textColor="#A6A6A6"
-            android:layout_marginEnd="12sp"
-            app:layout_constraintStart_toStartOf="@id/txt_courses_sex"
-            app:layout_constraintTop_toTopOf="@id/et_courses_interest"
-            app:layout_constraintBottom_toBottomOf="@id/et_courses_interest"/>
+            android:textColor="@color/gray_300"
+            android:layout_marginTop="16sp"
+            app:layout_constraintStart_toStartOf="@id/txt_courses_theme"
+            app:layout_constraintTop_toBottomOf="@id/grid"/>
         <EditText
             android:id="@+id/et_courses_interest"
-            android:layout_width="0dp"
-            android:layout_height="39sp"
-            android:background="@drawable/bg_square_gray_14"
+            android:layout_width="match_parent"
+            android:layout_height="68sp"
+            android:background="@drawable/bg_square_trans_gray100_14"
             android:paddingHorizontal="20sp"
             android:hint="@string/signup_edit_text"
-            android:fontFamily="@font/pretendard_semibold"
+            android:fontFamily="@font/pretendard_regular"
             android:textSize="20sp"
-            android:layout_marginTop="13sp"
-            app:layout_constraintStart_toStartOf="@id/btn_courses_theme_food"
-            app:layout_constraintTop_toBottomOf="@id/btn_courses_theme_food"
+            android:layout_marginHorizontal="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_courses_interest"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
@@ -391,28 +371,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="특이사항"
-            android:fontFamily="@font/pretendard_semibold"
+            android:fontFamily="@font/pretendard_medium"
             android:textSize="20sp"
-            android:textColor="#A6A6A6"
-            android:layout_marginEnd="12sp"
-            app:layout_constraintStart_toStartOf="@id/txt_courses_sex"
-            app:layout_constraintTop_toTopOf="@id/et_courses_significant"
-            app:layout_constraintBottom_toBottomOf="@id/et_courses_significant"/>
+            android:textColor="@color/gray_300"
+            android:layout_marginTop="16sp"
+            app:layout_constraintTop_toBottomOf="@id/et_courses_interest"
+            app:layout_constraintStart_toStartOf="@id/txt_courses_theme" />
         <EditText
             android:id="@+id/et_courses_significant"
-            android:layout_width="0dp"
-            android:layout_height="39sp"
-            android:background="@drawable/bg_square_gray_14"
+            android:layout_width="match_parent"
+            android:layout_height="68sp"
+            android:background="@drawable/bg_square_trans_gray100_14"
             android:paddingHorizontal="20dp"
             android:hint="@string/signup_edit_text"
-            android:fontFamily="@font/pretendard_semibold"
+            android:fontFamily="@font/pretendard_regular"
             android:textSize="20sp"
-            android:layout_marginTop="13sp"
             android:layout_marginBottom="14sp"
-            app:layout_constraintStart_toStartOf="@id/btn_courses_theme_food"
-            app:layout_constraintTop_toBottomOf="@id/et_courses_interest"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_courses_significant"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/btn_schedule_fold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_fold"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_courses_significant"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView

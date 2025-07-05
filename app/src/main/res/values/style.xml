@@ -2,14 +2,14 @@
 <resources>
     <style name="CalendarHeaderText">
         <item name="fontFamily">@font/pretendard_medium</item>
-        <item name="android:textColor">@color/gray_80</item>
+        <item name="android:textColor">@color/main_color</item>
     </style>
     <style name="CalendarWeekdayText">
         <item name="fontFamily">@font/pretendard_medium</item>
-        <item name="android:textColor">@color/gray_40</item>
+        <item name="android:textColor">@color/gray_300</item>
     </style>
     <style name="CalendarDateText">
         <item name="fontFamily">@font/pretendard_medium</item>
-        <item name="android:textColor">@color/gray_80</item>
+        <item name="android:textColor">@color/gray_500</item>
     </style>
 </resources>
