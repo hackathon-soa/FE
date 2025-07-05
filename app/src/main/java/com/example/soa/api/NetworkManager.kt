@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkManager {
 
     // 실제 API 서버의 Base URL IN
-    private const val BASE_URL = "https://aos.inyro.site/"
+    private const val BASE_URL = "http://3.39.175.37:8080/"
 
     //위의 경우, 실제 각 기능이 실행될 떄, BASE_URL + ApiService에 정의한 URL을 붙여 실행
 

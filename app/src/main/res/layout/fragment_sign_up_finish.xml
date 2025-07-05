@@ -26,14 +26,46 @@
         android:id="@+id/txt_signup_complete_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signup_complete_message"
+        android:text="환영합니다!"
+        android:textColor="@color/black"
         android:fontFamily="@font/pretendard_semibold"
-        android:textSize="24sp"
-        android:layout_marginTop="82dp"
+        android:textSize="32sp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_login"/>
+        />
+
+    <TextView
+        android:id="@+id/txt_signup_complete2_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="트레블 투게더 회원가입이 완료되었습니다."
+        android:textColor="@color/black"
+        android:fontFamily="@font/pretendard_semibold"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_signup_complete_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_signup_complete3_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="트레블 투게더는 신원인증이 끝난 후에\n모든 서비스 이용이 가능합니다.\n신원인증 기간은 3일 내외로 소요됩니다."
+        android:gravity="center"
+        android:textColor="@color/gray_400"
+        android:fontFamily="@font/pretendard_semibold"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_signup_complete2_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
 
     <FrameLayout
         android:id="@+id/btn_login"
@@ -41,12 +73,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16sp"
         android:background="@drawable/bg_square_main_color_60"
-        android:layout_marginTop="82sp"
-        app:layout_constraintTop_toBottomOf="@id/txt_signup_complete_message">
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/txt_signup_complete3_message">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup_login"
+            android:text="로그인 페이지로 이동"
             android:fontFamily="@font/pretendard_semibold"
             android:textSize="22sp"
             android:textColor="@color/white"

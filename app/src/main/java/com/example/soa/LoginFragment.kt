@@ -1,11 +1,17 @@
 package com.example.soa
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.soa.api.AuthService
+import com.example.soa.api.AuthView
+import com.example.soa.api.IdCheckResult
+import com.example.soa.api.LoginResult
+import com.example.soa.api.SignUpResult
 import com.example.soa.databinding.FragmentLoginBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -18,10 +24,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoginFragment : Fragment() {
+class LoginFragment : Fragment(), AuthView {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var authService : AuthService
 
     private lateinit var binding: FragmentLoginBinding
 
@@ -31,6 +39,8 @@ class LoginFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(
@@ -44,6 +54,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //api
+        authService = AuthService(this)
 
         binding.btnLoginLogin.setOnClickListener {
             validLogin()
@@ -71,9 +84,29 @@ class LoginFragment : Fragment() {
         }
         
         //값을 보낸 경우 --> API 결과에 따라 통과 or 오류
+
+        authService.login(id, pw)
+
         
 
     }
+
+
+    override fun onSignUpSuccess(result: SignUpResult) {}
+    override fun onSignUpFailure(errorMsg: String) {}
+    override fun onLoginSuccess(result: LoginResult) {
+        val accessToken = result.accessToken
+        Log.d("test", accessToken)
+    }
+
+    override fun onLoginFailure(errorMsg: String) {
+        Log.d("test", "꾸앙")
+    }
+
+    override fun onIdCheckSuccess(result: IdCheckResult) {
+
+    }
+
 
     companion object {
         /**

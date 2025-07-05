@@ -16,5 +16,8 @@ interface AuthView {
     // 로그인 실패 시, errorMsg에 실패 사유(코드·메시지)를 담아 넘겨줌
     fun onLoginFailure(errorMsg: String)
 
+    // 아이디 체크 생공 시 백엔드가 준 IdCheckResult 전체를 넘겨줌
+    fun onIdCheckSuccess(result: IdCheckResult)
+
 
 }

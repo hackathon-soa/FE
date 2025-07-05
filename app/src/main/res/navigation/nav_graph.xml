@@ -40,6 +40,10 @@
             android:id="@+id/action_signupInfoFragment_to_signupFinishFragment"
             app:destination="@id/signupFinishFragment" />
 
+        <action
+            android:id="@+id/action_signupInfoFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
 
     <fragment
         android:id="@+id/signupFinishFragment"

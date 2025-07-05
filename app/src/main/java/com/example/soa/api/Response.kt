@@ -4,15 +4,25 @@ package com.example.soa.api
 
 //회원가입 요청 보낼 때 양식
 data class SignUpRequest(
+    val appId: String,
+    val password: String,
     val name: String,
-    val email: String,
-    val password: String
+    val nickname: String,
+    val phoneNumber: String,
+    val birth: String,
+    val gender: String,
+    val disabilityType: String
 )
 
 //로그인 요청 보낼 때 양식
 data class LoginRequest(
-    val email: String,
+    val appId: String,
     val password: String
+)
+
+//아이디 체크 보낼 때 양식
+data class IdCheckRequest(
+    val appId: String
 )
 
 //응답 양식
@@ -25,9 +35,8 @@ data class Response<T> (
 
 //응답 양식 중 회원가입
 data class SignUpResult(
-    val memberId: Long,
-    val createdAt: String,
-    val updatedAt: String
+    val userId: Long,
+    val appId: String
 )
 
 //응답 양식 중 로그인
@@ -36,5 +45,12 @@ data class LoginResult(
     val accessToken: String
 )
 
+//응답 양식 중 아이디 체크
+data class IdCheckResult(
+    val isAvailable: Boolean,
+    val message: String
+)
+
 typealias LoginResponse = Response<LoginResult>
 typealias SignUpResponse = Response<SignUpResult>
+typealias IdCheckResponse = Response<IdCheckResult>

@@ -50,7 +50,9 @@
             android:layout_height="48dp"
             android:background="@drawable/bg_square_white_grey_14"
             android:paddingStart="20dp"
-            android:hint="@string/signup_edit_text"
+            android:inputType="number"
+            android:digits="0123456789-."
+            android:hint="예) 010-1234-5678"
             android:textColor="@color/black"
             android:textColorHint="@color/gray_400"
             android:layout_marginTop="8dp"
@@ -77,6 +79,7 @@
             android:background="@drawable/bg_square_white_grey_14"
             android:paddingStart="20dp"
             android:hint="예) XXXXXXXX"
+            android:inputType="number"
             android:textColor="@color/black"
             android:textColorHint="@color/gray_400"
             android:layout_marginTop="8dp"
@@ -120,6 +123,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="남성"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -156,6 +160,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="여성"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -198,6 +203,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="없음"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -228,6 +234,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="청각장애"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -256,6 +263,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="경증보행장애"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -283,6 +291,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="지체장애"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -311,6 +320,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="언어장애"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
@@ -339,6 +349,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="기타"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
