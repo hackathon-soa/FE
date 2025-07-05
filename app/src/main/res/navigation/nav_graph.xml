@@ -12,6 +12,10 @@
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
 
+        <action
+            android:id="@+id/action_homeFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+
 
     <fragment
         android:id="@+id/scheduleFragment"
@@ -70,5 +74,10 @@
         android:id="@+id/searchFragment"
         android:name="com.example.soa.SearchFragment"
         android:label="검색" />
+
+    <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="com.example.soa.CourseDetailFragment"
+        android:label="상세정보" />
 
 </navigation>
