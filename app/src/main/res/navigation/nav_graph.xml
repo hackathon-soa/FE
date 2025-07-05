@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.soa.HomeFragment"
+        android:label="홈" />
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.soa.ScheduleFragment"
+        android:label="일정" />
+
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="com.example.soa.MyPageFragment"
+        android:label="마이페이지" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.soa.LoginFragment"
+        android:label="로그인" />
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.soa.SplashFragment"
+        android:label="스플래시" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+</navigation>
