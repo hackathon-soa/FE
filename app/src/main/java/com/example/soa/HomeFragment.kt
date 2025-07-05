@@ -69,7 +69,11 @@ class HomeFragment : Fragment() {
             )
         )
 
-        val adapter = HomeCourseAdapter(courseList)
+        val adapter = HomeCourseAdapter(courseList) {
+            findNavController().navigate(R.id.action_homeFragment_to_courseDetailFragment)
+        }
+        binding.rvHomeCourse.adapter = adapter
+
         binding.rvHomeCourse.adapter = adapter
         binding.rvHomeCourse.layoutManager = LinearLayoutManager(requireContext())
 

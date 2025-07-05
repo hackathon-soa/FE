@@ -7,7 +7,8 @@ import com.example.soa.data.TravelCourse
 import com.example.soa.databinding.ItemHomeCourseBinding
 
 class HomeCourseAdapter(
-    courses: List<TravelCourse>
+    courses: List<TravelCourse>,
+    private val onItemClick: () -> Unit
 ) : RecyclerView.Adapter<HomeCourseAdapter.ViewHolder>() {
 
     private val items = courses.take(2) // 최대 2개까지만 표시
@@ -22,6 +23,10 @@ class HomeCourseAdapter(
             binding.tvCourseNickname.text = course.nickname
             binding.tvCourseDisability.text = course.disability
             binding.ivCourseProfile.setImageResource(course.profileImgRes)
+
+            binding.root.setOnClickListener {
+                onItemClick()
+            }
         }
     }
 
