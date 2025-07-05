@@ -10,10 +10,20 @@ class AuthService(private val view: AuthView) {
     private val api = NetworkManager.retrofit.create(ApiService::class.java)
 
     //회원가입 기능
-    fun signUp(name: String, email: String, pw: String){
+
+    fun signUp(id: String, pw: String, name: String, nickname: String, tel: String, birth: String, gender: String, jangae: String){
         //결국에는 NetworkManger -> Retrofit 인스턴스 + ApiService 연결 후 호출
         //꼭 enqueue로 비동기로 넣자 (apiService에 정의된 signUP 실행)
-        api.signUP(SignUpRequest(name, email, pw))
+        api.signUP(SignUpRequest(
+            appId            = id,
+            password         = pw,
+            name             = name,
+            nickname         = nickname,
+            phoneNumber      = tel,
+            birth            = birth,
+            gender           = gender,
+            disabilityType   = jangae
+        ))
             .enqueue(object : Callback<SignUpResponse>{
                 override fun onResponse(
                     call: Call<SignUpResponse?>,
@@ -56,8 +66,40 @@ class AuthService(private val view: AuthView) {
             })
     }
 
-    fun login(email: String, pw: String){
-        api.login(LoginRequest(email, pw))
+
+    //아이디 체크
+    fun idcheck(id: String){
+        api.idcheck(id)
+            .enqueue(object : Callback<IdCheckResponse>{
+                override fun onResponse(
+                    call: Call<IdCheckResponse?>,
+                    response: Response<IdCheckResponse?>
+                ) {
+                    if(response.isSuccessful){
+                        val body = response.body()
+                        if (body != null && body.isSuccess && body.result != null) {
+                            // 성공: LoginResult 객체 전달
+                            view.onIdCheckSuccess(body.result)
+                        }
+                        else{
+                            // API 레벨 실패(401 등) 또는 isSuccesss == false
+                            val msg = body?.message ?: "로그인 실패: HTTP ${response.code()}"
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<IdCheckResponse?>, t: Throwable) {
+
+                }
+
+            })
+
+    }
+
+    //로그인
+    fun login(id: String, pw: String){
+        api.login(LoginRequest(id, pw))
             .enqueue(object : Callback<LoginResponse>{
                 override fun onResponse(
                     call: Call<LoginResponse?>,
