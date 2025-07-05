@@ -16,7 +16,7 @@
         android:layout_height="29dp"
         android:src="@drawable/ic_arrow_back"
         android:backgroundTint="@android:color/transparent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -45,85 +45,63 @@
         app:layout_constraintTop_toBottomOf="@id/tv_title_signupInfo"
         />
 
-    <TextView
-        android:id="@+id/tv_input_signupInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="01 기본정보입력"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/pretendard_regular"
-        app:layout_constraintStart_toStartOf="@id/btn_back_signup_info"
-        app:layout_constraintTop_toBottomOf="@id/view_divide_signupInfo"/>
-
-    <TextView
-        android:id="@+id/tv_nametext_signupInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="성함"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/pretendard_medium"
-        app:layout_constraintStart_toStartOf="@id/tv_input_signupInfo"
-        app:layout_constraintTop_toBottomOf="@id/tv_input_signupInfo"/>
-
-    <EditText
-        android:id="@+id/et_name_signupInfo"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/bg_square_white_grey_14"
-        android:fontFamily="@font/pretendard_medium"
-        android:layout_marginTop="5dp"
-        android:hint="여기에 입력하세요"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray_400"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_nametext_signupInfo"/>
+        app:layout_constraintTop_toTopOf="@id/view_divide_signupInfo"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout_signupInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <include
+                    android:id="@+id/item_signupInfo"
+                    layout="@layout/layout_signup"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_title" />
 
 
-    <TextView
-        android:id="@+id/tv_phonetext_signupInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="연락처"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/pretendard_medium"
-        app:layout_constraintStart_toStartOf="@id/tv_input_signupInfo"
-        app:layout_constraintTop_toBottomOf="@id/et_name_signupInfo"/>
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_phone_signupInfo"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/bg_square_white_grey_14"
-        android:fontFamily="@font/pretendard_medium"
-        android:layout_marginTop="5dp"
-        android:hint="여기에 입력하세요"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray_400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_phonetext_signupInfo"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_half_"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_next_signupInfo"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="다음"
+                android:fontFamily="@font/pretendard_regular"
+                android:textSize="22sp"
+                android:padding="10dp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="35dp"
+                android:elevation="0dp"
+                app:cornerRadius="60dp"
+                app:backgroundTint="#00CD7E"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_signupInfo"/>
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

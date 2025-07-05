@@ -1,59 +1,113 @@
 package com.example.soa
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
+import com.example.soa.databinding.FragmentSignUpInfoBinding
+import java.util.Vector
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class SignUpInfoFragment : Fragment(R.layout.fragment_sign_up_info) {
+    private var _binding: FragmentSignUpInfoBinding? = null
+    private val binding get() = _binding!!
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SignUpInfoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SignUpInfoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    // 이 프로퍼티가 layout_signup.xml 전체 바인딩
+    private val signupBinding get() = binding.itemSignupInfo
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    //들어가는 정보들
+    private var name: String = ""
+    private var tel: String = ""
+    private var birth: String = ""
+    private var gender: String = ""
+    private var jangae : Vector<String> = Vector()
+    private var id: String = ""
+    private var nickname : String = ""
+    private var password : String = ""
+    private var passwordCheck : String = ""
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        _binding = FragmentSignUpInfoBinding.bind(view)
+        updateStepUI()
+
+        binding.btnNextSignupInfo.setOnClickListener {
+
+            if (signupBinding.includeBasicInfo.root.isVisible) {
+                // 1단계 값 읽기
+                val name   = signupBinding.includeBasicInfo.etBasicInfoName.text.toString()
+                val tel    = signupBinding.includeBasicInfo.etBasicInfoTel.text.toString()
+                val birth  = signupBinding.includeBasicInfo.etBasicInfoBirth.text.toString()
+                val gender = if (signupBinding.includeBasicInfo.btnBasicInfoMale.isSelected) "남성" else "여성"
+
+                // TODO: ViewModel 등에 저장…
+
+                // 화면 전환
+                signupBinding.includeBasicInfo.root.visibility = View.GONE
+                signupBinding.includeIdPassword.root.visibility = View.VISIBLE
+                signupBinding.includeIdentify.root.visibility = View.GONE
+
+            } else if(signupBinding.includeIdPassword.root.isVisible) {
+                // 2단계 값 읽기
+                val nick   = signupBinding.includeIdPassword.etSignupNickname.text.toString()
+                val userId = signupBinding.includeIdPassword.etSignupId.text.toString()
+                val pwd    = signupBinding.includeIdPassword.etSignupPassword.text.toString()
+                val chk    = signupBinding.includeIdPassword.etSignupPasswordCheck.text.toString()
+
+                // TODO: ViewModel 등에 저장…
+
+                // 화면 전환 (원한다면 뒤로 돌아가기도)
+                signupBinding.includeBasicInfo.root.visibility = View.GONE
+                signupBinding.includeIdPassword.root.visibility = View.GONE
+                signupBinding.includeIdentify.root.visibility = View.VISIBLE
+            }
+            else if(signupBinding.includeIdentify.root.isVisible){
+
+                findNavController().navigate(R.id.action_signupInfoFragment_to_signupFinishFragment)
+
+
+
+            }
+
+            updateStepUI()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up_info, container, false)
+
+    private fun handleBasicInfo(){
+
+        //성별 버튼
+        signupBinding.includeBasicInfo.btnBasicInfoMale.setOnClickListener {
+
+        }
+        signupBinding.includeBasicInfo.btnBasicInfoFemale.setOnClickListener {
+
+        }
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignUpInfoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SignUpInfoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+    private fun updateStepUI() {
+        if (signupBinding.includeBasicInfo.root.isVisible) {
+            signupBinding.tvSignupNumber.text = "01"
+            signupBinding.tvSignupTitle.text  = "기본정보입력"
+        } else if(signupBinding.includeIdPassword.root.isVisible) {
+            signupBinding.tvSignupNumber.text = "02"
+            signupBinding.tvSignupTitle.text  = "닉네임·계정정보"
+        } else if(signupBinding.includeIdentify.root.isVisible){
+            signupBinding.tvSignupNumber.text = "03"
+            signupBinding.tvSignupTitle.text  = "신원인증"
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
+

@@ -1,148 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <TextView
-        android:id="@+id/tv_basic_info_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이름"
-        android:textSize="18sp"
-        android:includeFontPadding="false"
-        android:layout_marginStart="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/et_basic_info_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@drawable/bg_square_white_grey_14"
-        android:paddingStart="20dp"
-        android:hint="@string/signup_edit_text"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_name"/>
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <TextView
-        android:id="@+id/tv_basic_info_tel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="전화번호"
-        android:textSize="18sp"
-        android:includeFontPadding="false"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_basic_info_name" />
-
-    <EditText
-        android:id="@+id/et_basic_info_tel"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@drawable/bg_square_white_grey_14"
-        android:paddingStart="20dp"
-        android:hint="@string/signup_edit_text"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_tel"/>
-
-    <TextView
-        android:id="@+id/tv_basic_info_birth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="생년월일 (6자리)"
-        android:textSize="18sp"
-        android:includeFontPadding="false"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_basic_info_tel" />
-
-    <EditText
-        android:id="@+id/et_basic_info_birth"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:background="@drawable/bg_square_white_grey_14"
-        android:paddingStart="20dp"
-        android:hint="예) XXXXXX"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_birth"/>
-
-    <TextView
-        android:id="@+id/tv_basic_info_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="성별"
-        android:textSize="18sp"
-        android:includeFontPadding="false"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_basic_info_birth" />
-
-    <FrameLayout
-        android:id="@+id/btn_basic_info_male"
-        android:layout_width="55dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_basic_info_gender">
-
-        <!-- 버튼 배경 -->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg_square_white_grey_14" />
-
-        <!-- 버튼 텍스트 -->
         <TextView
+            android:id="@+id/tv_basic_info_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="남성"
+            android:text="성함"
             android:textSize="18sp"
-            android:includeFontPadding="false"/>
-    </FrameLayout>
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/line_basic_info"
-        android:layout_width="1dp"
-        android:layout_height="48dp"
-        android:src="@drawable/line_gray_200"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_basic_info_male"
-        app:layout_constraintStart_toEndOf="@id/btn_basic_info_male" />
-
-    <FrameLayout
-        android:id="@+id/btn_basic_info_female"
-        android:layout_width="55dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_basic_info_male"
-        app:layout_constraintStart_toEndOf="@id/line_basic_info"
-        app:layout_constraintTop_toTopOf="@+id/btn_basic_info_male">
-
-        <!-- 버튼 배경 -->
-        <ImageView
+        <EditText
+            android:id="@+id/et_basic_info_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg_square_white_grey_14" />
+            android:layout_height="48dp"
+            android:background="@drawable/bg_square_white_grey_14"
+            android:paddingStart="20dp"
+            android:hint="@string/signup_edit_text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray_400"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_name"/>
 
-        <!-- 버튼 텍스트 -->
+
         <TextView
+            android:id="@+id/tv_basic_info_tel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:text="연락처"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:includeFontPadding="false"
-            android:text="여성"
-            android:textSize="18sp" />
-    </FrameLayout>
-    
-    
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_basic_info_name" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/et_basic_info_tel"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_square_white_grey_14"
+            android:paddingStart="20dp"
+            android:hint="@string/signup_edit_text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray_400"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_tel"/>
+
+        <TextView
+            android:id="@+id/tv_basic_info_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="생년월일 (8자리)"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_basic_info_male" />
+
+        <EditText
+            android:id="@+id/et_basic_info_birth"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_square_white_grey_14"
+            android:paddingStart="20dp"
+            android:hint="예) XXXXXXXX"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray_400"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_basic_info_birth"/>
+
+        <TextView
+            android:id="@+id/tv_basic_info_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="성별"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:includeFontPadding="false"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_basic_info_tel" />
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_male"
+            android:layout_width="55dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@id/line_basic_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/line_basic_info">
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_male"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="남성"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/line_basic_info"
+            android:layout_width="1dp"
+            android:layout_height="48dp"
+            android:src="@drawable/line_gray_200"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_basic_info_gender"
+            app:layout_constraintStart_toEndOf="@id/btn_basic_info_male" />
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_female"
+            android:layout_width="55dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_basic_info_male"
+            app:layout_constraintStart_toEndOf="@id/line_basic_info"
+            app:layout_constraintTop_toTopOf="@+id/btn_basic_info_male">
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_female"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="여성"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <!--장애 구분-->
+
+        <TextView
+            android:id="@+id/tv_basic_info_jangae"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장애 구분"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:includeFontPadding="false"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_basic_info_birth" />
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_jangaeNo"
+            android:layout_width="55dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_basic_info_jangae"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_jangaeNo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_jangaeNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="없음"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_jangaeChungGak"
+            android:layout_width="90dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="7dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_basic_info_jangae"
+            app:layout_constraintStart_toEndOf="@id/btn_basic_info_jangaeNo"
+            >
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_jangaeChungGak"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_jangaeChungGak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="청각장애"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_jangaegyungjeongbohang"
+            android:layout_width="124dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="7dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_basic_info_jangae"
+            app:layout_constraintStart_toEndOf="@id/btn_basic_info_jangaeChungGak"
+            >
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_jangaegyungjeongbohang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_jangaegyungjeongbohang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="경증보행장애"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_jangaejicahe"
+            android:layout_width="90dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_basic_info_jangaeNo"
+            app:layout_constraintStart_toStartOf="@id/btn_basic_info_jangaeNo"
+            >
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_jangaejicahe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_jangaejicahe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="지체장애"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_jangaeUnoh"
+            android:layout_width="90dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="7dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_basic_info_jangaeNo"
+            app:layout_constraintStart_toEndOf="@id/btn_basic_info_jangaejicahe"
+            >
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_jangaeUnoh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_jangaeUnoh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="언어장애"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_basic_info_jangaegita"
+            android:layout_width="55dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="7dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_basic_info_jangaeNo"
+            app:layout_constraintStart_toEndOf="@id/btn_basic_info_jangaeUnoh"
+            >
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_basic_info_jangaegita"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_basic_info_jangaegita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="기타"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
