@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soa.adapter.HomeCourseAdapter
 import com.example.soa.adapter.HomeStoryAdapter
@@ -71,6 +72,10 @@ class HomeFragment : Fragment() {
         val adapter = HomeCourseAdapter(courseList)
         binding.rvHomeCourse.adapter = adapter
         binding.rvHomeCourse.layoutManager = LinearLayoutManager(requireContext())
+
+        binding.etHomeSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
     }
 
     override fun onDestroyView() {
