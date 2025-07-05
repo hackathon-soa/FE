@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         // 이동할 Fragment에 따라 BottomNavigationView 숨기거나 보이게 하기
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.splashFragment || destination.id == R.id.loginFragment) {  // 바텀 네비 숨겨야 하는 경우 여기에 추가
+            if (destination.id == R.id.splashFragment || destination.id == R.id.loginFragment || destination.id == R.id.signupInfoFragment
+                ||destination.id == R.id.signupFinishFragment) {  // 바텀 네비 숨겨야 하는 경우 여기에 추가
                 binding.bottomNavigationView.visibility = View.GONE
             } else {
                 binding.bottomNavigationView.visibility = View.VISIBLE

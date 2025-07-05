@@ -23,6 +23,35 @@
         android:name="com.example.soa.LoginFragment"
         android:label="로그인" />
 
+        <action
+            android:id="@+id/action_loginFragment_to_signupInfoFragment"
+            app:destination="@id/signupInfoFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    <fragment
+        android:id="@+id/signupInfoFragment"
+        android:name="com.example.soa.SignUpInfoFragment"
+        android:label="회원가입_기본정보입력" />
+
+        <action
+            android:id="@+id/action_signupInfoFragment_to_signupFinishFragment"
+            app:destination="@id/signupFinishFragment" />
+
+
+    <fragment
+        android:id="@+id/signupFinishFragment"
+        android:name="com.example.soa.SignUpFinishFragment"
+        android:label="회원가입_완료" />
+
+        <action
+            android:id="@+id/action_signupFinishFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            />
+
+
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.soa.SplashFragment"
