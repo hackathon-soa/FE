@@ -2,6 +2,8 @@
     <string name="app_name">Soa</string>
     <string name="logo">Travel Together</string>
 
+    <string name="signup_edit_text">여기에 입력하세요</string>
+    
     <string name="signup_complete_message">
         회원가입이 완료되었습니다!
         \n로그인 후 바로 서비스 이용하세요.</string>
