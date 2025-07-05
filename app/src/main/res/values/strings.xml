@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Soa</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo">Travel Together</string>
+
+    <string name="signup_edit_text">여기에 입력하세요</string>
+    
+    <string name="signup_complete_message">
+        회원가입이 완료되었습니다!
+        \n로그인 후 바로 서비스 이용하세요.</string>
+    <string name="signup_login">로그인</string>
+
+    <string name="signup_step3">03 신원인증</string>
+    <string name="signup_file_upload">파일을 업로드 하세요.</string>
+    <string name="signup_camera">바로 올리기</string>
+    <string name="signup_gallery">갤러리 찾기</string>
 </resources>
