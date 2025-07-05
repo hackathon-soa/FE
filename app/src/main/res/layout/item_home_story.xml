@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="119dp"
     android:layout_height="match_parent"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/bg_home_stroke"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/bg_ho"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_home_story"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/img_demo"
-        android:scaleType="centerCrop"
         android:layout_margin="2dp"
-        android:clipToOutline="true"
-        android:outlineProvider="background"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_demo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/Rounded14dpImage" />
 
     <ImageView
         android:id="@+id/iv_home_story_user"

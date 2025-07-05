@@ -35,7 +35,8 @@ class HomeFragment : Fragment() {
         val storyList = listOf(
             TravelStory(1, R.drawable.ic_story_user, R.drawable.img_demo, "소연"),
             TravelStory(2, R.drawable.ic_story_user, R.drawable.img_demo, "지우"),
-            TravelStory(3, R.drawable.ic_story_user, R.drawable.img_demo, "하람")
+            TravelStory(3, R.drawable.ic_story_user, R.drawable.img_demo, "하람"),
+            TravelStory(3, R.drawable.ic_story_user, R.drawable.img_demo, "지현")
         )
 
         homeStoryAdapter = HomeStoryAdapter(storyList)
