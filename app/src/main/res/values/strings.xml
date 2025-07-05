@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Soa</string>
+    <string name="signup_edit_text">여기에 입력하세요</string>
 </resources>
