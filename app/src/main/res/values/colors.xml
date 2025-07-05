@@ -9,17 +9,12 @@
     <!-- Secondary Colors -->
     <color name="secondary_color">#C3FF8A</color>
 
-    <!-- Background Colors -->
-    <color name="main_back_color">#F6FFF9</color>
-
     <!-- Mono Colors -->
     <color name="black_color">#121814</color>
-    <color name="background_color">#FFFFFF</color>
+    <color name="background_color">#FCA849</color>
 
     <!-- Gray Colors -->
     <color name="gray_0">#FFFFFF</color>
-    <color name="gray_40">#B5BEC6</color>
-    <color name="gray_80">#616B74</color>
     <color name="gray_100">#EEF4F0</color>
     <color name="gray_200">#C6CCC8</color>
     <color name="gray_300">#9EA4A0</color>

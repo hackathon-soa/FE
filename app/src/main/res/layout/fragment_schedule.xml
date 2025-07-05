@@ -14,58 +14,52 @@
         android:fontFamily="@font/pretendard_bold"
         android:textSize="24sp"
         android:textColor="@color/main_color"
+        android:layout_marginStart="23sp"
+        android:layout_marginTop="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
-        android:id="@+id/btn_schedule_back"
-        android:layout_width="18sp"
-        android:layout_height="41sp"
-        android:src="@drawable/btn_back"
-        app:layout_constraintEnd_toEndOf="@id/line_schedule_back"
-        app:layout_constraintTop_toTopOf="@id/txt_schedule_logo"
-        app:layout_constraintBottom_toBottomOf="@id/txt_schedule_logo"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/line_schedule_back"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.08"/>
 
     <TextView
         android:id="@+id/txt_schedule_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/make_courses"
-        android:layout_marginTop="50sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/pretendard_semibold"
+        android:textSize="20sp"
+        android:layout_marginTop="32sp"
+        android:layout_marginStart="107sp"
+        app:layout_constraintStart_toStartOf="@id/txt_schedule_logo"
         app:layout_constraintTop_toBottomOf="@id/txt_schedule_logo"/>
 
 <!--    컨텐츠 컨테이너-->
-    <LinearLayout
-        android:id="@+id/layout_schedule_content"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="24dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginHorizontal="16dp"
-        android:animateLayoutChanges="true"
         app:layout_constraintTop_toBottomOf="@id/txt_schedule_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:id="@+id/layout_schedule_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:animateLayoutChanges="true">
 
-<!--        일정 생성 화면-->
-        <include
-            android:id="@+id/include_make_courses"
-            layout="@layout/layout_make_courses"
-            android:visibility="visible"/>
+            <!--        일정 생성 화면-->
+            <include
+                android:id="@+id/include_make_courses"
+                layout="@layout/layout_make_courses"
+                android:visibility="visible"/>
 
-<!--        장소 검색 화면-->
-        <include
-            android:id="@+id/include_place_search"
-            layout="@layout/layout_place_search"
-            android:visibility="gone"/>
-    </LinearLayout>
+            <!--        장소 검색 화면-->
+            <include
+                android:id="@+id/include_place_search"
+                layout="@layout/layout_place_search"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
