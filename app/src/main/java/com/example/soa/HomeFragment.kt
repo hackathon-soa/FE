@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.soa.adapter.HomeCourseAdapter
 import com.example.soa.adapter.HomeStoryAdapter
+import com.example.soa.data.TravelCourse
 import com.example.soa.data.TravelStory
 import com.example.soa.databinding.FragmentHomeBinding
 
@@ -44,6 +46,31 @@ class HomeFragment : Fragment() {
             adapter = homeStoryAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
+
+        val courseList = listOf(
+            TravelCourse(
+                title = "3박 4일 대구 일정",
+                location = "대구",
+                schedule = "3 / 1 ~ 3 / 4",
+                gender = "여",
+                nickname = "하랑별",
+                disability = "청각장애",
+                profileImgRes = R.drawable.ic_story_user
+            ),
+            TravelCourse(
+                title = "2박 3일 전주 여행",
+                location = "전주",
+                schedule = "2 / 20 ~ 2 / 22",
+                gender = "남",
+                nickname = "별이",
+                disability = "지체장애",
+                profileImgRes = R.drawable.ic_story_user
+            )
+        )
+
+        val adapter = HomeCourseAdapter(courseList)
+        binding.rvHomeCourse.adapter = adapter
+        binding.rvHomeCourse.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onDestroyView() {
