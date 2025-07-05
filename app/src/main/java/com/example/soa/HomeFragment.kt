@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
         )
 
         val adapter = HomeCourseAdapter(courseList) {
-            findNavController().navigate(R.id.action_homeFragment_to_courseDetailFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_courseListFragment)
         }
         binding.rvHomeCourse.adapter = adapter
 

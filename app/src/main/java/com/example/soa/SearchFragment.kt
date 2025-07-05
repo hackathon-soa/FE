@@ -64,7 +64,9 @@ class SearchFragment : Fragment() {
             )
         )
 
-        courseAdapter = SearchCourseAdapter(dummyList)
+        courseAdapter = SearchCourseAdapter(dummyList) { clickedItem ->
+            findNavController().navigate(R.id.action_searchFragment_to_courseDetailFragment)
+        }
         binding.rvSearchResult.apply {
             adapter = courseAdapter
             layoutManager = LinearLayoutManager(requireContext())

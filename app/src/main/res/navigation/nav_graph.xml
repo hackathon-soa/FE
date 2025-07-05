@@ -13,8 +13,8 @@
             app:destination="@id/searchFragment" />
 
         <action
-            android:id="@+id/action_homeFragment_to_courseDetailFragment"
-            app:destination="@id/courseDetailFragment" />
+            android:id="@+id/action_homeFragment_to_courseListFragment"
+            app:destination="@id/courseListFragment" />
 
 
     <fragment
@@ -79,9 +79,18 @@
         android:name="com.example.soa.SearchFragment"
         android:label="검색" />
 
+        <action
+            android:id="@+id/action_searchFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+
     <fragment
         android:id="@+id/courseDetailFragment"
         android:name="com.example.soa.CourseDetailFragment"
+        android:label="상세정보" />
+
+    <fragment
+        android:id="@+id/courseListFragment"
+        android:name="com.example.soa.CourseListFragment"
         android:label="상세정보" />
 
 </navigation>
