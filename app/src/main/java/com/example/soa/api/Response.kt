@@ -173,6 +173,41 @@ data class MyCourse(
     val disabilityType: String
 )
 
+/**
+ * POST /courses 요청 바디
+ */
+data class CourseCreateRequest(
+    val title: String,
+    val region: String,
+    val startTime: String,          // ISO 8601 포맷 예: "2025-07-05T21:59:29.377Z"
+    val endTime: String,
+    val interests: String,
+    val specialNote: String,
+    val preferredGender: String,    // "MALE" 또는 "FEMALE"
+    val travelThemes: List<String>,
+    val segments: List<CourseSegmentRequest>
+)
+
+data class CourseSegmentRequest(
+    val startTime: String,
+    val endTime: String,
+    val moving: Boolean,
+    val movementType: String,
+    val movementDistanceKm: Double,
+    val locationName: String,
+    val locationAddress: String
+)
+
+/**
+ * POST /courses 응답 바디를 그대로 매핑
+ */
+data class CreateCourseResponse(
+    val isSuccess: Boolean,
+    val code: String,
+    val message: String,
+    val result: Int          // 새로 생성된 코스의 ID
+)
+
 typealias LoginResponse = Response<LoginResult>
 typealias SignUpResponse = Response<SignUpResult>
 typealias IdCheckResponse = Response<IdCheckResult>

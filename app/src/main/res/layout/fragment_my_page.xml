@@ -1,15 +1,713 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
     tools:context=".MyPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctl_mypage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MyPageFragment"
-        android:gravity="center"/>
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <!-- 1. 앱 이름 -->
+        <TextView
+            android:id="@+id/tv_app_name_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel Together"
+            android:textSize="24sp"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:textColor="@color/main_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- 2. 페이지 제목 -->
+        <TextView
+            android:id="@+id/tv_page_title_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="마이페이지"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_app_name_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+
+        <!-- 3. 인사말 -->
+        <TextView
+            android:id="@+id/tv_greeting_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="안녕하세요! 티티님!"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/gray_600"
+            app:layout_constraintTop_toBottomOf="@id/tv_page_title_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"/>
+
+        <!-- 4. 사용자 정보 카드 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_user_info_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/main_color"
+            android:backgroundTint="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_greeting_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_avatar_mypage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_rounded_mypage"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_age_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나이"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="20dp"
+
+                    app:layout_constraintStart_toEndOf="@id/iv_avatar_mypage"
+                    app:layout_constraintTop_toTopOf="@id/iv_avatar_mypage"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_avatar_mypage"/>
+
+                <TextView
+                    android:id="@+id/divide_age_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/main_color"
+                    android:text="|"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_age_mypage"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_age_mypage"
+                    app:layout_constraintStart_toEndOf="@id/tv_age_mypage"/>
+
+                <TextView
+                    android:id="@+id/tv_ageout_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="36세"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/divide_age_mypage"
+                    app:layout_constraintTop_toTopOf="@id/iv_avatar_mypage"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_avatar_mypage"/>
+
+
+
+                <TextView
+                    android:id="@+id/tv_gender_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성별"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_avatar_mypage"
+                    app:layout_constraintTop_toTopOf="@id/iv_avatar_mypage" />
+
+                <TextView
+                    android:id="@+id/divide_gender_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/main_color"
+                    android:text="|"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_gender_mypage"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_gender_mypage"
+                    app:layout_constraintStart_toEndOf="@id/tv_gender_mypage"/>
+
+                <TextView
+                    android:id="@+id/tv_genderout_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="여성"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/divide_gender_mypage"
+                    app:layout_constraintTop_toTopOf="@id/iv_avatar_mypage"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jangae_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="장애구분"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_avatar_mypage"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_avatar_mypage"/>
+
+                <TextView
+                    android:id="@+id/divide_jangae_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/main_color"
+                    android:text="|"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_jangae_mypage"
+                    app:layout_constraintStart_toEndOf="@id/tv_jangae_mypage"/>
+
+                <TextView
+                    android:id="@+id/tv_jangaeout_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="청각장애"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/divide_jangae_mypage"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_avatar_mypage"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. 메너온도 -->
+        <TextView
+            android:id="@+id/tv_manner_label_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메너온도"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintTop_toBottomOf="@id/card_user_info_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"/>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_user_manner_mypage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/main_color"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_manner_label_mypage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_mmm_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나의 매너 온도는"
+                android:textSize="18sp"
+                android:fontFamily="@font/pretendard_medium"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+            <TextView
+                android:id="@+id/tv_ondo_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="47"
+                android:textSize="18sp"
+                android:fontFamily="@font/pretendard_medium"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_mmm_mypage"
+                app:layout_constraintEnd_toStartOf="@id/tv_mmm2_mypage"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_mmm2_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="°C"
+                android:textSize="21sp"
+                android:fontFamily="@font/pretendard_medium"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- 6. 받은 도움이력-->
+        <TextView
+            android:id="@+id/tv_help_label_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내가 받은 도움이력"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintTop_toBottomOf="@id/card_user_manner_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"/>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_user_help_mypage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/main_color"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_help_label_mypage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_approval_title_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="승인이 필요한 봉사"
+            android:textSize="18sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_course_name_mypage"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="대구 유명 관광지 1박 2일"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_600"
+            android:paddingHorizontal="5dp"
+            app:strokeColor="@color/gray_300"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_approval_title_mypage"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_course_point_mypage"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="2000 p"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_600"
+            app:strokeColor="@color/gray_300"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toTopOf="@id/btn_course_name_mypage"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            />
+
+        <!-- 3. 신청자 정보 카드 헤더 -->
+        <View
+            android:id="@+id/view_divider_top_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_200"
+            app:layout_constraintTop_toBottomOf="@id/btn_course_name_mypage"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_header_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="신청자 정보"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/gray_600"
+            app:layout_constraintTop_toBottomOf="@id/view_divider_top_mypage"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/iv_applicant_avatar_mypage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_rounded_mypage"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_header_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_name_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="네모지"
+            android:textSize="16sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintTop_toTopOf="@id/iv_applicant_avatar_mypage"
+            app:layout_constraintStart_toEndOf="@id/iv_applicant_avatar_mypage"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_applicant_disability_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="청각장애"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_500"
+            app:layout_constraintTop_toTopOf="@id/tv_applicant_name_mypage"
+            app:layout_constraintBottom_toBottomOf="@id/tv_applicant_name_mypage"
+            app:layout_constraintStart_toEndOf="@id/tv_applicant_name_mypage"
+            android:layout_marginStart="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_temp_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="64°C"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/main_color"
+            app:layout_constraintTop_toTopOf="@id/tv_applicant_name_mypage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_contact_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="연락처 | 010-xxxx-xxxx"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_500"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_name_mypage"
+            app:layout_constraintStart_toStartOf="@id/tv_applicant_name_mypage"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_info_1_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="성별 | 여"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_500"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_contact_mypage"
+            app:layout_constraintStart_toStartOf="@id/tv_applicant_name_mypage"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_info_11_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="| 나이 | 22"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_500"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="100dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_contact_mypage"
+            app:layout_constraintStart_toEndOf="@id/tv_applicant_info_1_mypage"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_info_2_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="봉사시간 | 12시간"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_500"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_info_1_mypage"
+            app:layout_constraintStart_toStartOf="@id/tv_applicant_name_mypage"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_applicant_info_22_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="| 마일리지 | 2000p"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_500"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_info_11_mypage"
+            app:layout_constraintStart_toStartOf="@id/tv_applicant_info_11_mypage"/>
+
+
+        <FrameLayout
+            android:id="@+id/btn_select_time_mypage"
+            android:layout_width="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/iv_applicant_avatar_mypage"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_info_2_mypage">
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_select_time_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_select_time_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="true"
+                android:text="4h"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_select_point_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="20dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/btn_select_time_mypage"
+            app:layout_constraintTop_toBottomOf="@id/tv_applicant_info_2_mypage">
+
+            <!-- 버튼 배경 -->
+            <ImageView
+                android:id="@+id/imv_select_point_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_square_white_grey_14" />
+
+            <!-- 버튼 텍스트 -->
+            <TextView
+                android:id="@+id/tv_select_point_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="true"
+                android:text="2000p"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- 7. 내가 한 봉사이력-->
+        <TextView
+            android:id="@+id/tv_mybongsa_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내가 받은 도움이력"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintTop_toBottomOf="@id/card_user_help_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"/>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_mybongsa_mypage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/main_color"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_mybongsa_mypage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_service_time_label_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="봉사시간"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_600"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tv_service_time_value_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_square_white_gray_16"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="12 h"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_service_time_label_mypage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tv_mileage_label_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마일리지"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/gray_600"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_service_time_label_mypage"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tv_mileage_value_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_square_white_gray_16"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="3600 p"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/black_color"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_mileage_label_mypage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_input_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/tv_mileage_label_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_use_mypage">
+
+            <EditText
+                android:id="@+id/et_custom_value_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="여기에 입력하세요."
+                android:padding="12dp"
+                android:background="@null"
+                android:textSize="14sp"
+                android:fontFamily="@font/pretendard_regular"
+                android:textColor="@color/gray_600"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tv_unit_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="@color/gray_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_input_mypage"
+            android:layout_marginStart="8dp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_use_mypage"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:backgroundTint="@color/main_color"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_mybongsa_mypage"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>
