@@ -1,5 +1,6 @@
 package com.example.soa.api
 
+import com.example.soa.api.course.network.CourseService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,4 +31,6 @@ object NetworkManager {
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    val courseService: CourseService = retrofit.create(CourseService::class.java)
 }

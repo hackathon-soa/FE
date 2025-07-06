@@ -30,7 +30,7 @@
         android:id="@+id/tv_course_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="전주 한옥마을 관광지 투어 1박"
+        android:text="2025-06-30 ~ 2025-07-02 대구 일정"
         android:textSize="20dp"
         android:fontFamily="@font/pretendard_medium"
         android:layout_marginTop="60dp"

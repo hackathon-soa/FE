@@ -45,10 +45,14 @@ class CourseListFragment : Fragment() {
 
     private fun generateScheduleList(): List<ScheduleItem> {
         return listOf(
-            ScheduleItem.DayHeader("Day 1", "1.2/월"),
+            ScheduleItem.DayHeader("Day 1", "6 / 30"),
             ScheduleItem.ScheduleEntry("카페거리", "13:00 ~ 15:00", "동행신청"),
             ScheduleItem.WalkInfo("1km", "도보 10분"),
-            ScheduleItem.ScheduleEntry("호수공원", "15:10 ~ 18:00", "신청완료")
+            ScheduleItem.ScheduleEntry("호수공원", "15:10 ~ 18:00", "신청완료"),
+            ScheduleItem.DayHeader("Day 2", "7 / 1"),
+            ScheduleItem.ScheduleEntry("분좋카", "13:00 ~ 15:00", "동행신청"),
+            ScheduleItem.DayHeader("Day 3", "7 / 2"),
+            ScheduleItem.ScheduleEntry("파스타 맛집", "13:00 ~ 15:00", "동행신청"),
         )
     }
 
