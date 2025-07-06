@@ -12,14 +12,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soa.adapter.HomeCourseAdapter
 import com.example.soa.adapter.HomeStoryAdapter
+import com.example.soa.api.CourseDetailResult
+import com.example.soa.api.FoundCourse
+import com.example.soa.api.MyCourse
+import com.example.soa.api.StoryItem
+import com.example.soa.api.StoryService
+import com.example.soa.api.StoryView
 import com.example.soa.data.TravelCourse
 import com.example.soa.data.TravelStory
 import com.example.soa.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), StoryView {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var storyService: StoryService
 
     private lateinit var prefs: SharedPreferences
     private lateinit var accessToken: String
@@ -41,6 +49,8 @@ class HomeFragment : Fragment() {
         accessToken = prefs.getString("accessToken", "") ?: ""
         Log.d("test", accessToken)
 
+        storyService = StoryService(this, requireContext())
+        testAPI()
         setupHomeStoryRecyclerView()
     }
 
@@ -92,8 +102,80 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun testAPI() {
+
+        //1. 스토리 호출
+        storyService.fetchStories(0, 1)
+
+        // 1) 스토리 목록
+        storyService.fetchStories(page = 0, size = 10)
+
+        // 2) 동행 신청 (segmentId 예시로 1L)
+        storyService.registerSegment(segmentId = 1L)
+
+        // 3) 코스 상세 조회 (courseId 예시로 1L)
+        storyService.fetchCourseDetail(courseId = 1L)
+
+        // 4) 지역 검색 (region 예시로 "서울")
+        storyService.searchRegion(region = "서울")
+
+        // 5) 내 코스 조회
+        storyService.fetchMyCourses()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onStoriesLoaded(stories: List<StoryItem>) {
+        Log.d("HomeFragment", "✅ 스토리 ${stories.size}개 불러옴")
+        stories.forEach { item ->
+            Log.d("HomeFragment", "${item.nickname} → ${item.imageUrl}")
+        }
+    }
+
+    override fun onStoriesError(errorMsg: String) {
+        Log.d("HomeFragment", "❌ 스토리 로드 실패: $errorMsg")
+    }
+
+    override fun onRegisterSuccess() {
+        Log.d("HomeFragment", "✅ 동행 신청 성공")
+    }
+
+    override fun onRegisterFailure(errorMsg: String) {
+        Log.d("HomeFragment", "❌ 동행 신청 실패: $errorMsg")
+    }
+
+    override fun onCourseDetailLoaded(detail: CourseDetailResult) {
+        Log.d("HomeFragment", "✅ 코스 상세 로드: ${detail.segments.size} 세그먼트")
+    }
+
+    override fun onCourseDetailError(errorMsg: String) {
+        Log.d("HomeFragment", "❌ 코스 상세 에러: $errorMsg")
+    }
+
+    override fun onSearchResultsLoaded(results: List<FoundCourse>) {
+        Log.d("HomeFragment", "✅ 검색 결과 ${results.size}개")
+    }
+
+    override fun onSearchError(errorMsg: String) {
+        Log.d("HomeFragment", "❌ 검색 에러: $errorMsg")
+    }
+
+    override fun onMyCoursesLoaded(courses: List<MyCourse>) {
+        Log.d("HomeFragment", "✅ 내 코스 ${courses.size}개")
+    }
+
+    override fun onMyCoursesError(errorMsg: String) {
+        Log.d("HomeFragment", "❌ 내 코스 조회 실패: $errorMsg")
+    }
+
+    override fun onCourseCreated() {
+
+    }
+
+    override fun onCourseCreateError(errorMsg: String) {
+
     }
 }

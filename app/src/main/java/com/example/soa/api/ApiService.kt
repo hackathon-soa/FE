@@ -76,4 +76,12 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<Response<MyCoursesResponse>>
 
+
+    /** 관광 코스 등록하기 */
+    @POST("courses")
+    fun createCourse(
+        @Header("Authorization") token: String,
+        @Body body: CourseCreateRequest
+    ): Call<CreateCourseResponse>
+
 }
