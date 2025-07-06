@@ -13,6 +13,11 @@
 
     <style name="Theme.Soa" parent="Base.Theme.Soa" />
 
+    <!--bottom Navigation transparent 뒤에 동그라미를 없앤다-->
+    <style name="BottomNav_NoIndicator" parent="">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <!-- Bottom Navi -->
     <style name="Theme.Navi.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/white</item>
