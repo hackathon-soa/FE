@@ -1,6 +1,5 @@
 package com.example.soa
 
-import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.soa.databinding.ItemScheduleWithPlaceBinding
 
 class ScheduleRVAdapter(private val scheduleList: ArrayList<Schedule>) : RecyclerView.Adapter<ScheduleRVAdapter.ViewHolder>() {
+//    private var count = 1
+
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
@@ -17,6 +18,7 @@ class ScheduleRVAdapter(private val scheduleList: ArrayList<Schedule>) : Recycle
     }
 
     override fun onBindViewHolder(holder: ScheduleRVAdapter.ViewHolder, position: Int) {
+        Log.d("position", "${position}")
         holder.bind(scheduleList[position])
 
         /** ViewHolder item view 클릭 이벤트 처리 */
@@ -42,10 +44,10 @@ class ScheduleRVAdapter(private val scheduleList: ArrayList<Schedule>) : Recycle
 
     inner class ViewHolder(val binding: ItemScheduleWithPlaceBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(schedule: Schedule) {
-
-            val year = schedule.date[0]
-            val month = schedule.date[1]
-            val weekday = schedule.weekday
+//            Log.d("bind", "count = ${count}")
+//            binding.itemScheduleDayCount.text = "Day ${count}"
+//            count++
+//            binding.itemScheduleDate.text = "${schedule.date?.get(1)}.${schedule.date?.get(2)}/${schedule.date?.get(1)}"
         }
     }
 }

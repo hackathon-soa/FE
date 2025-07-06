@@ -22,8 +22,6 @@ class ScheduleFragment : Fragment() {
     private var theme = IntArray(7, {0})
     private var interest = ""
     private var significant = ""
-    private lateinit var startDate: LocalDate
-    private lateinit var endDate: LocalDate
     private lateinit var MD: Array<Int>
     private var scheduleList = arrayListOf<Schedule>()
 
@@ -35,11 +33,6 @@ class ScheduleFragment : Fragment() {
         binding = FragmentScheduleBinding.inflate(layoutInflater, container, false)
 
         initClickListener()
-
-//        val scheduleRVAdapter = ScheduleRVAdapter(scheduleList) // 데이터 리스트 연결
-//        binding.includeMakeCourses.rvCoursesSchedule.adapter = scheduleRVAdapter // RecyclerView에 Adapter 연결
-//        binding.includeMakeCourses.rvCoursesSchedule.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
         return binding.root
     }
 
@@ -48,6 +41,15 @@ class ScheduleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         onSubmit()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val scheduleRVAdapter = ScheduleRVAdapter(scheduleList) // 데이터 리스트 연결
+        scheduleRVAdapter.notifyDataSetChanged()
+        binding.includeMakeCourses.rvCoursesSchedule.adapter = scheduleRVAdapter // RecyclerView에 Adapter 연결
+        binding.includeMakeCourses.rvCoursesSchedule.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
     private fun initClickListener() {
@@ -199,10 +201,21 @@ class ScheduleFragment : Fragment() {
             val endMD = DateStringToListHelper(endDate.toString())
 
             MD = arrayOf(startMD[0],startMD[1])
+
+            val startLocalDate = LocalDate.of(startMD[0], startMD[1], startMD[2])
+            val endLocalDate = LocalDate.of(endMD[0], endMD[1], endMD[2])
+            val period = endLocalDate.toEpochDay() - startLocalDate.toEpochDay()
+            Log.d("period", period.toString())
+
+            scheduleList.clear()
+
+            for (i in 0..period) {
+                scheduleList.add(Schedule(null, null, null, MD.toList(), "weekday"))
+            }
+
             binding.includeMakeCourses.txtCoursesTravelPeriod.text = String.format("%s/%s ~ %s/%s", startMD[1], startMD[2], endMD[1], endMD[2])
 
-            this.startDate = LocalDate.of(startMD[0], startMD[1], startMD[2])
-            this.endDate = LocalDate.of(endMD[0], endMD[1], endMD[2])
+            onResume()
         }
     }
 
