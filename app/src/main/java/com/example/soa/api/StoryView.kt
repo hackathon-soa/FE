@@ -38,4 +38,10 @@ interface StoryView {
     /** 내 코스 목록 로드 실패 */
     fun onMyCoursesError(errorMsg: String)
 
+    /** 코스 등록 성공 */
+    fun onCourseCreated()
+
+    /** 코스 등록 실패 */
+    fun onCourseCreateError(errorMsg: String)
+
 }
